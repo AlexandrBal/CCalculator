@@ -45,7 +45,7 @@ bool readNums(double *a, double *b) {
 
 int main() {
     char operator;
-    double oper1, oper2;
+    double oper1, oper2, result;
 
     line(20);
 
@@ -60,42 +60,64 @@ int main() {
             continue;
         }
 
-        if (operator == 'H') {
-            printf("Available operators: H, +, -, *, /, ^, N\n");
-            printf("First enter an operator, then on the next line 2 numbers, separated by space\n");
-            printf("To exit, enter N\n");
-        } else if (operator == '+') {
+        switch (operator)
+        {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '^':
             if (!readNums(&oper1, &oper2)) {
                 continue;
             }
-            printf("%.2lf\n", oper1+oper2);
-        } else if (operator == '-') {
-            if (!readNums(&oper1, &oper2)) {
-                continue;
+            
+            switch (operator)
+            {
+            case '+':
+                result = oper1 + oper2;
+                break;
+            
+            case '-':
+                result = oper1 - oper2;
+                break;
+            
+            case '*':
+                result = oper1 * oper2;
+                break;
+            
+            case '/':
+                if (oper2 == 0.0) {
+                    printf("Division by 0!\n");
+                    continue;
+                } else {
+                    result = oper1 / oper2;
+                }
+                break;
+
+            case '^':
+                result = 1;
+                for (int i = 0; i < oper2; i++) {
+                    result *= oper1;
+                }
+                break;
+                
+            default:
+                printf("Unknown operator.\n");
+                break;
             }
-            printf("%.2lf\n", oper1-oper2);
-        } else if (operator == '*') {
-            if (!readNums(&oper1, &oper2)) {
-                continue;
-            }
-            printf("%.2lf\n", oper1*oper2);
-        } else if (operator == '/') {
-            if (!readNums(&oper1, &oper2)) {
-                continue;
-            }
-            printf("%.2lf\n", oper1/oper2);
-        } else if (operator == '^') {
-            if (!readNums(&oper1, &oper2)) {
-                continue;
-            }
-            double res = 1;
-            for (int i=0; i<oper2; i++) {
-                res *= oper1;
-            }
-            printf("%.2lf\n", res);
-        } else if (operator == 'N') {
-            printf("Thank you! Good day!");
+
+            printf("%.2f\n", result);
             break;
+        
+        case 'H':
+            printf("Available operators: H, +, -, *, /, ^, N\n");
+            printf("First enter an operator, then enter two numbers\n");
+            printf("To exit, enter N\n");
+            break;
+
+        case 'N':
+            printf("Thank you! Good day!");
+            return 0;
         }
     }
 }
