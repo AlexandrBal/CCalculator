@@ -102,7 +102,6 @@ int main() {
                 break;
                 
             default:
-                printf("Unknown operator.\n");
                 break;
             }
 
@@ -118,6 +117,10 @@ int main() {
         case 'N':
             printf("Thank you! Good day!");
             return 0;
+
+        default:
+            printf("Unknown operator.\n");
+            break;
         }
     }
 }
