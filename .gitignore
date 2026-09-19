@@ -1,2 +1,5 @@
 tests.exe
 tests.c
+tests2.c
+tests2.exe
+*.exe

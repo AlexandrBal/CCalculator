@@ -89,9 +89,9 @@ int main() {
                 if (oper2 == 0.0) {
                     printf("Division by 0!\n");
                     continue;
-                } else {
-                    result = oper1 / oper2;
                 }
+
+                result = oper1 / oper2;
                 break;
 
             case '^':
@@ -99,9 +99,6 @@ int main() {
                 for (int i = 0; i < oper2; i++) {
                     result *= oper1;
                 }
-                break;
-                
-            default:
                 break;
             }
 
