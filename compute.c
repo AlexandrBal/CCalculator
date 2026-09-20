@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "compute.h"
 #include "io.h"
 
 bool cmp_doubles(double rhs, double lhs) {
@@ -28,7 +29,7 @@ double mult(double num1, double num2) {
 
 double div(double num1, double num2) {
     if (cmp_doubles(num2, 0)) {
-        printf("Divisioon by 0!\n");
+        printf("Division by 0!\n");
         return NAN;
     } else {
         return num1 / num2;
