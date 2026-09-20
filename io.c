@@ -1,5 +1,6 @@
 #include "io.h"
 #include <stdio.h>
+#include <math.h>
 
 void line(int len) {
     for (int i = 0; i<len; i++) {
@@ -9,8 +10,8 @@ void line(int len) {
 }
 
 bool readOperator(char *operator) {
-    char input[INPUT_SIZE];
-    char extra;
+    char input[INPUT_SIZE] = {0};
+    char extra = '\0';
 
     if (fgets(input, sizeof(input), stdin) == NULL) {
         return false;
@@ -25,8 +26,8 @@ bool readOperator(char *operator) {
 }
 
 bool readNums(double *a, double *b) {
-    char input[INPUT_SIZE];
-    char extra;
+    char input[INPUT_SIZE] = {0};
+    char extra = '\0';
 
     if (fgets(input, sizeof(input), stdin) == NULL) {
         return false;
