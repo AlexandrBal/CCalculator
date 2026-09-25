@@ -3,8 +3,14 @@
 #include <stdbool.h>
 
 #define INPUT_SIZE 200
+enum ERROR_CODES {
+    SUCCESS = 0,
+    INVALID_POINTER,
+    WRONG_INPUT
+};
+enum ERROR_CODES pointer_check_assert(bool someLogic);
 void line(int len);
-bool readOperator(char *operator);
-bool readNums(double *a, double *b);
+enum ERROR_CODES readOperator(char *operator);
+enum ERROR_CODES readNums(double *a, double *b);
 
 #endif

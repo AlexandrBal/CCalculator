@@ -4,3 +4,4 @@ tests2.c
 tests2.exe
 *.exe
 *.o
+*.sh

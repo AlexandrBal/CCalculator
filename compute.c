@@ -38,11 +38,12 @@ double div(double num1, double num2) {
 
 int main_calculation(void) {
     char operator = '\0';
-    double oper1 = 0.0, oper2 = 0.0, result = 0.0;
+    double oper1 = NAN, oper2 = NAN, result = NAN;
     while (true) {
 
         printf("Enter an operator: ");
-        if (!readOperator(&operator)) {
+        enum ERROR_CODES operator_r_status = readOperator(&operator);
+        if (operator_r_status != SUCCESS) {
             continue;
         }
 
@@ -53,7 +54,8 @@ int main_calculation(void) {
         case '*':
         case '/':
         case '^':
-            if (!readNums(&oper1, &oper2)) {
+            enum ERROR_CODES nums_r_status = readNums(&oper1, &oper2);
+            if (nums_r_status != SUCCESS) {
                 continue;
             }
             
