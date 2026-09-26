@@ -11,7 +11,7 @@ TESTS=tests
 
 OBJS = compute.o io.o main.o
 
-.PHONY: tests
+.PHONY: tests clean
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
@@ -21,3 +21,6 @@ $(TESTS): $(TARGET)
 	diff tests/basic.expected tests/basic.actual
 	./$(TARGET) < tests/errors.in > tests/errors.actual
 	diff tests/errors.expected tests/errors.actual
+
+clean:
+	rm -f $(OBJS) $(TARGET)
