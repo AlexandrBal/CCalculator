@@ -39,9 +39,9 @@ enum ERROR_CODES readOperator(char *operator) {
 }
 
 enum ERROR_CODES readNums(double *a, double *b) {
-    enum ERROR_CODES state = pointer_check_assert(a == NULL && b == NULL);
+    enum ERROR_CODES state = pointer_check_assert(a == NULL || b == NULL);
     if (state == INVALID_POINTER) {
-        print("Invalid pointer!\n");
+        printf("Invalid pointer!\n");
         return INVALID_POINTER;
     }
 
