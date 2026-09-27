@@ -1,16 +1,23 @@
 #include <stdio.h>
 
-#include "io.h"
 #include "compute.h"
+#include "io.h"
 
-#define LINE_LENGTH 20
+// FIXME: make const
+// #define LINE_LENGTH 20
 
+// TODO: write C-code that reads test files
+//
 int main(void) {
-    line(LINE_LENGTH);
+  const int LINE_LENGTH = 20;
 
-    printf("Welcome to the calculator!\nFor more information press H\n");
+  line(LINE_LENGTH); // use verb in func name: draw_line / read_line
 
-    line(LINE_LENGTH);
+  printf("Welcome to the calculator!\nFor more information press H\n");
 
-    main_calculation();
+  line(LINE_LENGTH);
+
+  main_calculation(); // perform_calculation / calulate_result
+
 }
+
