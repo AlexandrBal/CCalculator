@@ -14,7 +14,7 @@ OBJS = compute.o io.o main.o
 .PHONY: tests clean
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET) -lm
 
 $(TESTS): $(TARGET)
 	./$(TARGET) < tests/basic.in > tests/basic.actual
